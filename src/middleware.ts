@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import jwtDecode from "jwt-decode";
 
 import { error } from "console";
-const singInURL = process.env.NEXT_PUBLIC_LOGIN_URL || ''
+const singInURL = "https://main.d2fyc20wzs6jdh.amplifyapp.com/"
 export function middleware(request: NextRequest,) {
     const token = request.cookies.get('token')?.value
     if (!token) {
@@ -14,7 +14,6 @@ export function middleware(request: NextRequest,) {
         })
     }
     try {
-        if (!process.env.NEXT_PUBLIC_JWT_SECRET) return NextResponse.redirect(singInURL);
         const decoded = jwtDecode(token);
         if (!decoded) throw error
     } catch (error) {
