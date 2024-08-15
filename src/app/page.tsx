@@ -37,9 +37,9 @@ export default function Home() {
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
   function login() {
-    if (password === process.env.NEXT_PUBLIC_PASSWORD && user === process.env.NEXT_PUBLIC_USERNAME && process.env.NEXT_PUBLIC_JWT_SECRET) {
+    if (password === "eyJSb2024." && user === "Intterconected") {
       const payload = { password, user }
-      const token = sign(payload, process.env.NEXT_PUBLIC_JWT_SECRET, {
+      const token = sign(payload, "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxNDY5MTg5MSwiaWF0IjoxNzE0NjkxODkxfQ.gxlcSmpjUszm4E9kv_KhBCkmdtV5v2vbMBFFmgEHlhc", {
         algorithm: 'HS256',
         expiresIn: '1h',
       })
